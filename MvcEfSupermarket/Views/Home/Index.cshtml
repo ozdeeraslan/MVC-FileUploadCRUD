@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@*Görev12*@
+@* <div class="text-center">
+    <a asp-controller="Market" asp-action="Listele" class="btn btn-primary">Tüm Ürünler</a>
+    <a asp-controller="Market" asp-action="StoktaOlanlar" class="btn btn-success">Stokta Olanlar</a>
+    <a asp-controller="Market" asp-action="StoktaOlmayanlar" class="btn btn-danger">Stokta Olmayanlar</a>
+</div> *@
+
+@*Görev13*@
+@{
+    if (ViewBag.ButunUrunlerStoktaMi)
+    {
+        <table>
+            <tr>
+                <td><a class="btn btn-primary" asp-controller="Market" asp-action="Listele"> TÜMÜ </a></td>
+                <td><a class="btn btn-success" asp-controller="Market" asp-action="StoktaOlanlar"> Stokta Olanlar </a></td>
+            </tr>
+        </table>
+    }
+    else if (ViewBag.HicbirUrunStoktaYokMu)
+    {
+        <table>
+            <tr>
+                <td><a class="btn btn-primary" asp-controller="Market" asp-action="Listele"> TÜMÜ </a></td>
+                <td>
+
+                    <a class="btn btn-danger" asp-controller="Market" asp-action="StoktaOlmayanlar"> Stokta Olmayanlar </a>
+                </td>
+            </tr>
+        </table>
+    }
+    else if (ViewBag.EnAzBirUrunStoktaMi && ViewBag.EnAzBirUrunStoktaYokMu)
+    {
+        <table>
+            <tr>
+                <td><a class="btn btn-primary" asp-controller="Market" asp-action="Listele"> TÜMÜ </a></td>
+                <td><a class="btn btn-success" asp-controller="Market" asp-action="StoktaOlanlar"> Stokta Olanlar </a></td>
+                <td>
+
+                    <a class="btn btn-danger" asp-controller="Market" asp-action="StoktaOlmayanlar"> Stokta Olmayanlar </a>
+                </td>
+            </tr>
+        </table>
+    }
+}
+
+

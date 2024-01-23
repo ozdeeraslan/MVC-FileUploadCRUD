@@ -1,0 +1,17 @@
+﻿@model List<Urun>
+
+<h2>Stokta Olmayan Ürünler</h2>
+
+<ul>
+    @foreach (var urun in Model)
+    {
+        <li>
+            Id: @urun.Id <br />
+            Ürün Ad: @urun.Ad <br />
+            Fiyat: @urun.Fiyat <br />
+            Stok Durumu: @urun.StokDurumu
+        </li>
+    }
+</ul>
+
+

@@ -1,0 +1,25 @@
+﻿@model List<Urun>
+
+<h2>Stokta Olan Ürünler</h2>
+
+<table class="table table-dark table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Ürün Ad</th>
+            <th>Fiyat</th>
+            <th>Stok Durumu</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var urun in Model)
+        {
+            <tr>
+                <td>@urun.Id</td>
+                <td>@urun.Ad</td>
+                <td>@urun.Fiyat</td>
+                <td>@urun.StokDurumu</td>
+            </tr>
+        }
+    </tbody>
+</table>

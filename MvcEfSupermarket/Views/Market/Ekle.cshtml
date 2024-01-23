@@ -1,0 +1,40 @@
+﻿@model UrunViewModel
+
+<h1>Yeni Ürün Ekle</h1>
+
+@if (TempData["Durum"] != null)
+{
+    <ul class="list-group">
+        <li class="list-group list-group-item-danger">
+            @TempData["Durum"]
+        </li>
+
+    </ul>
+}
+
+<form asp-controller="Market" asp-action="Ekle" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label class="form-label" asp-for="Ad">Ürün Adı</label>
+        <input class="form-control" asp-for="Ad" />
+    </div>
+    <div class="form-group">
+        <label class="form-label" asp-for="Fiyat">Fiyat</label>
+        <input class="form-control" asp-for="Fiyat" />
+    </div>
+    <div class="form-group">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" asp-for="StokDurumu" />
+            <label class="form-check-label" asp-for="StokDurumu">Stok Durumu</label>
+        </div>
+    </div>
+
+    @*Resim Ekleme Bölümü*@
+    <div class="form-group">
+        <div class="form-check">
+            <label class="form-control" asp-for="Resim">Resim:</label>
+            <input type="file" asp-for="Resim" />
+        </div>
+    </div>
+
+    <button class="btn btn-primary">Ekle</button>
+</form>

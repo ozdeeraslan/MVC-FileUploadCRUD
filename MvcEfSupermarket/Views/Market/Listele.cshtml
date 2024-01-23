@@ -1,0 +1,44 @@
+﻿@model List<Urun>
+@{
+    ViewData["Title"] = "Ürünler";
+}
+
+@if (TempData["Durum"] != null)
+{
+    <ul class="list-group">
+        <li class="list-group list-group-item-danger">
+            @TempData["Durum"]
+        </li>
+
+    </ul>
+}
+
+<h1>Urunler</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Ürün Ad</th>
+            <th>Fiyat</th>
+            <th>Stok Durumu</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var urun in Model)
+        {
+            <tr>
+                <td>@urun.Id</td>
+                <td>@urun.Ad</td>
+                <td>@urun.Fiyat</td>
+                <td>@(urun.StokDurumu ? "Stokta var" : "Stokta yok")</td>
+                <td><img height="60px" width="60px" alt="Resim Yok" src="~/Resimler/@urun.ResimAdi" /></td>
+                <td>
+                    <a asp-action="ResimNullYap" class="btn btn-secondary" asp-route-id="@urun.Id">Resmi Kaldir</a>
+                    <a asp-action="Guncelle" class="btn btn-warning" asp-route-id="@urun.Id">Güncelle</a>
+                    <a asp-action="Sil" class="btn btn-danger" asp-route-id="@urun.Id">Sil</a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
